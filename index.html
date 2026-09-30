@@ -49,6 +49,7 @@
 <ul class="nav-list">
 <li><a href="#motivation">Motivation</a></li>
 <li><a href="#architecture">What it enables</a></li>
+<li><a href="#components">Components</a></li>
 <li><a href="#principles">Principles</a></li>
 <li><a href="#status">Status</a></li>
 <li><a href="https://github.com/Perigone" target="_blank" rel="noopener noreferrer">GitHub</a></li>
@@ -159,7 +160,98 @@
 </div>
 </section>
 
-<section id="principles" class="section section-alt section-tight" aria-labelledby="principles-title">
+<section id="components" class="section section-alt" aria-labelledby="components-title">
+<div class="container stack-lg">
+<div class="section-head">
+<p class="eyebrow">Components</p>
+<h2 id="components-title">How the pieces fit together.</h2>
+<p class="lead">Perigone is built as a small number of layers, each with one clear job. The top two are what Perigone adds, and only Perigone Core is required. The bottom two are the platform underneath.</p>
+</div>
+<div class="layer-groups">
+
+<div class="layer-group" role="group" aria-labelledby="group-perigone">
+<p id="group-perigone" class="group-label">Built by Perigone</p>
+<div class="layer layer-ui">
+<div class="layer-head">
+<div class="layer-tagline">
+<p class="layer-tag">Interface</p>
+<span class="badge badge-outline">Optional</span>
+</div>
+<h3>Perigone</h3>
+</div>
+<p class="layer-text">The optional user-facing app store and management UI. Find, install and manage apps without having to think about the layers underneath, or skip it and run Perigone Core on its own.</p>
+</div>
+<div class="layer layer-core">
+<div class="layer-head">
+<div class="layer-tagline">
+<p class="layer-tag">Control</p>
+<span class="badge badge-filled">Standalone</span>
+</div>
+<h3>Perigone Core</h3>
+</div>
+<p class="layer-text">The declarative management layer, similar in spirit to Kubernetes. You describe what should run and what it is allowed to access, and Core works to make that the reality. It does not need the UI and can run entirely on its own.</p>
+</div>
+</div>
+
+<div class="layer-group" role="group" aria-labelledby="group-platform">
+<p id="group-platform" class="group-label">The platform underneath</p>
+<div class="layer layer-platform">
+<div class="layer-head">
+<div class="layer-tagline">
+<p class="layer-tag">Platform</p>
+</div>
+<h3>System components</h3>
+<p class="layer-desc">Small, isolated services that run, connect, store and package workloads.</p>
+</div>
+<ul class="tiles" role="list">
+<li class="tile">
+<p class="tile-upstream">component_manager</p>
+<h4>Component framework</h4>
+<p>Starts components and routes capabilities between them. Nothing gets access it was not handed.</p>
+</li>
+<li class="tile">
+<p class="tile-upstream">Netstack3</p>
+<h4>Network stack</h4>
+<p>Networking runs as its own isolated component, not inside the kernel.</p>
+</li>
+<li class="tile">
+<p class="tile-upstream">Fxfs</p>
+<h4>Storage</h4>
+<p>Persistent data on a copy-on-write filesystem.</p>
+</li>
+<li class="tile">
+<p class="tile-upstream">Package system</p>
+<h4>Packages</h4>
+<p>Content-addressed packages, verified by hash.</p>
+</li>
+<li class="tile">
+<p class="tile-upstream">Driver framework</p>
+<h4>Drivers</h4>
+<p>Hardware drivers run in userspace, outside the kernel.</p>
+</li>
+<li class="tile">
+<p class="tile-upstream">Starnix</p>
+<h4>Linux compatibility</h4>
+<p>Runs existing Linux programs, so current software can come along.</p>
+</li>
+</ul>
+</div>
+<div class="layer layer-kernel">
+<div class="layer-head">
+<div class="layer-tagline">
+<p class="layer-tag">Foundation</p>
+</div>
+<h3>Kernel</h3>
+</div>
+<p class="layer-text"><strong>Powered by Zircon.</strong> A small kernel that keeps the privileged part of the system minimal, with everything else running isolated on top of it.</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="principles" class="section section-tight" aria-labelledby="principles-title">
 <div class="container stack-md">
 <div class="section-head">
 <p class="eyebrow">Principles</p>
@@ -179,8 +271,8 @@
 <p>Permissions, dependencies and access are declared, never assumed.</p>
 </li>
 <li>
-<h3>Honest about scope</h3>
-<p>Perigone aims to do server management well, not to be everything.</p>
+<h3>Simple to operate</h3>
+<p>Running a server shouldn&rsquo;t require understanding a stack of tools.</p>
 </li>
 </ul>
 </div>
