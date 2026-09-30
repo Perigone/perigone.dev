@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+<rect width="200" height="200" rx="44" fill="#14101A"/>
+<g transform="translate(25 25) scale(0.75)">
+<g fill="#FF3D8B">
+<path d="M100 100C78 70 82 30 100 8C118 30 122 70 100 100Z"/>
+<path d="M100 100C78 70 82 30 100 8C118 30 122 70 100 100Z" transform="rotate(90 100 100)"/>
+<path d="M100 100C78 70 82 30 100 8C118 30 122 70 100 100Z" transform="rotate(180 100 100)"/>
+<path d="M100 100C78 70 82 30 100 8C118 30 122 70 100 100Z" transform="rotate(270 100 100)"/>
+</g>
+<g fill="#9A6BE0">
+<path d="M100 100C78 88 72 52 100 40C128 52 122 88 100 100Z" transform="rotate(45 100 100)"/>
+<path d="M100 100C78 88 72 52 100 40C128 52 122 88 100 100Z" transform="rotate(135 100 100)"/>
+<path d="M100 100C78 88 72 52 100 40C128 52 122 88 100 100Z" transform="rotate(225 100 100)"/>
+<path d="M100 100C78 88 72 52 100 40C128 52 122 88 100 100Z" transform="rotate(315 100 100)"/>
+</g>
+<circle cx="100" cy="100" r="11" fill="#FFE8F1"/>
+</g>
+</svg>

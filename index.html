@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+<title>Perigone: Server management, with less in the way</title>
+<meta name="description" content="Perigone is a server management stack designed around security, strict permissions and a small footprint. In early development.">
+<meta name="theme-color" content="#14101A">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Perigone: Server management, with less in the way">
+<meta property="og:description" content="A server management stack designed around security, strict permissions and a small footprint. In early development.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/outfit-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body id="top">
+
+<svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+<symbol id="mark" viewBox="0 0 200 200">
+<g fill="#FF3D8B">
+<path d="M100 100C78 70 82 30 100 8C118 30 122 70 100 100Z"/>
+<path d="M100 100C78 70 82 30 100 8C118 30 122 70 100 100Z" transform="rotate(90 100 100)"/>
+<path d="M100 100C78 70 82 30 100 8C118 30 122 70 100 100Z" transform="rotate(180 100 100)"/>
+<path d="M100 100C78 70 82 30 100 8C118 30 122 70 100 100Z" transform="rotate(270 100 100)"/>
+</g>
+<g fill="#9A6BE0">
+<path d="M100 100C78 88 72 52 100 40C128 52 122 88 100 100Z" transform="rotate(45 100 100)"/>
+<path d="M100 100C78 88 72 52 100 40C128 52 122 88 100 100Z" transform="rotate(135 100 100)"/>
+<path d="M100 100C78 88 72 52 100 40C128 52 122 88 100 100Z" transform="rotate(225 100 100)"/>
+<path d="M100 100C78 88 72 52 100 40C128 52 122 88 100 100Z" transform="rotate(315 100 100)"/>
+</g>
+<circle cx="100" cy="100" r="11" fill="#FFE8F1"/>
+</symbol>
+</svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+<div class="container header-inner">
+<a class="brand" href="#top">
+<svg class="brand-mark" width="36" height="36" aria-hidden="true" focusable="false"><use href="#mark"/></svg>
+<span class="brand-name">perigone</span>
+</a>
+<nav aria-label="Primary">
+<ul class="nav-list">
+<li><a href="#motivation">Motivation</a></li>
+<li><a href="#architecture">What it enables</a></li>
+<li><a href="#principles">Principles</a></li>
+<li><a href="#status">Status</a></li>
+<li><a href="https://github.com/Perigone" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-title">
+<div class="container hero-inner">
+<div class="hero-copy">
+<h1 id="hero-title">Server management, rebuilt on a <span class="accent">smaller foundation</span>.</h1>
+<p class="hero-lead">Perigone is a server management stack designed from the ground up around security, strict permissions and a small footprint, for people who would rather run less software, not more.</p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="#motivation">Why Perigone</a>
+<a class="btn btn-outline" href="#architecture">What it enables</a>
+<a class="btn btn-outline" href="https://github.com/Perigone" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+</div>
+</div>
+<div class="hero-art">
+<svg viewBox="0 0 440 440" aria-hidden="true" focusable="false">
+<circle cx="220" cy="220" r="212" fill="none" stroke="#3A2D47" stroke-width="1.5" stroke-dasharray="3 9"/>
+<circle cx="220" cy="220" r="178" fill="none" stroke="#2E2438" stroke-width="1.5"/>
+<use href="#mark" x="60" y="60" width="320" height="320"/>
+</svg>
+</div>
+</div>
+</section>
+
+<section id="motivation" class="section section-alt" aria-labelledby="motivation-title">
+<div class="container stack-lg">
+<div class="section-head">
+<p class="eyebrow">The problem</p>
+<h2 id="motivation-title">Today&rsquo;s server stacks carry a lot of weight.</h2>
+<p class="lead">Perigone tries to answer what would happen if server management was reimagined from the ground up.</p>
+</div>
+<ul class="cards cards-4" role="list">
+<li class="card">
+<span class="card-num" aria-hidden="true">01</span>
+<h3>Bloated</h3>
+<p>Modern systems have piled up layers: general-purpose operating systems, daemons, container runtimes, orchestrators, and large app images.</p>
+<p>We want to reduce that.</p>
+</li>
+<li class="card">
+<span class="card-num" aria-hidden="true">02</span>
+<h3>Resource hungry</h3>
+<p>Apart from the apps, the management layer already occupies memory, CPU and a long list of background processes. For smaller systems, this often means a large share of resources &ldquo;wasted&rdquo;.</p>
+</li>
+<li class="card">
+<span class="card-num" aria-hidden="true">03</span>
+<h3>Built on old concepts</h3>
+<p>Much of today&rsquo;s tooling rests on older designs that were not built with modern systems in mind. A complete re-imagining of the entire stack can remove this legacy bloat.</p>
+</li>
+<li class="card">
+<span class="card-num" aria-hidden="true">04</span>
+<h3>Security as an afterthought</h3>
+<p>Hardening usually arrives later, as policies or scanners laid over the top. Defaults stay permissive, and getting to a secure setup is complicated.</p>
+</li>
+</ul>
+</div>
+</section>
+
+<section id="architecture" class="section" aria-labelledby="architecture-title">
+<div class="container stack-lg">
+<div class="section-head">
+<p class="eyebrow">Our approach</p>
+<h2 id="architecture-title">A new architecture changes what is possible.</h2>
+<p class="lead">Perigone is designed around isolated components and explicit capabilities instead of shared, trusted-by-default layers. These are the goals that follow from it.</p>
+</div>
+<ul class="cards cards-2" role="list">
+<li class="card card-feature">
+<svg class="icon" width="32" height="32" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M14 3L24 7V14C24 20 19.5 24 14 26C8.5 24 4 20 4 14V7Z"/>
+<path d="M9.5 14L13 17.5L19 11"/>
+</svg>
+<h3>Better security</h3>
+<p>Isolation is a core part of the platform, not just a layer on top. A small trusted base means less code runs with full privilege, and every workload is kept apart from the others by default.</p>
+</li>
+<li class="card card-feature">
+<svg class="icon" width="32" height="32" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<rect x="6" y="12" width="16" height="11" rx="3"/>
+<path d="M10 12V9a4 4 0 0 1 8 0V12"/>
+<circle cx="14" cy="17.5" r="1.5"/>
+</svg>
+<h3>Strict permissions</h3>
+<p>Nothing by default. A workload gets exactly the capabilities it is given, with no other access to the network, the filesystem or other workloads.</p>
+</li>
+<li class="card card-feature">
+<svg class="icon" width="32" height="32" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M14 4L24 9.5L14 15L4 9.5Z"/>
+<path d="M4 14L14 19.5L24 14"/>
+<path d="M4 18.5L14 24L24 18.5"/>
+</svg>
+<h3>Cleaner images</h3>
+<p>Packaging apps in cleaner images means faster downloads, fewer things to attack, faster app startup, and more disk space for the data that actually matters to you.</p>
+</li>
+<li class="card card-feature">
+<svg class="icon" width="32" height="32" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<rect x="8" y="8" width="12" height="12" rx="2"/>
+<path d="M12 4V8M16 4V8M12 20V24M16 20V24M4 12H8M4 16H8M20 12H24M20 16H24"/>
+</svg>
+<h3>Fewer processes</h3>
+<p>Less machinery running next to your workloads means more resources are available for the apps you actually need.</p>
+</li>
+</ul>
+</div>
+</section>
+
+<section id="principles" class="section section-alt section-tight" aria-labelledby="principles-title">
+<div class="container stack-md">
+<div class="section-head">
+<p class="eyebrow">Principles</p>
+<h2 id="principles-title" class="h2-small">What guides the design.</h2>
+</div>
+<ul class="principles" role="list">
+<li>
+<h3>Secure by default</h3>
+<p>The safe configuration is the one you get without doing anything.</p>
+</li>
+<li>
+<h3>Small on purpose</h3>
+<p>Every component has to justify the resources it uses.</p>
+</li>
+<li>
+<h3>Explicit over implicit</h3>
+<p>Permissions, dependencies and access are declared, never assumed.</p>
+</li>
+<li>
+<h3>Honest about scope</h3>
+<p>Perigone aims to do server management well, not to be everything.</p>
+</li>
+</ul>
+</div>
+</section>
+
+<section id="status" class="section section-tight" aria-labelledby="status-title">
+<div class="container">
+<div class="status-card">
+<span class="pill">Status</span>
+<h2 id="status-title" class="h2-small">Where things stand.</h2>
+<p>Perigone is in early development. There is no download yet and no release date to share. This page describes what the project is aiming for, not features you can use today.</p>
+<a class="btn btn-outline" href="https://github.com/Perigone" target="_blank" rel="noopener noreferrer">Follow along on GitHub</a>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+<div class="container footer-inner">
+<a class="brand brand-small" href="#top">
+<svg class="brand-mark" width="28" height="28" aria-hidden="true" focusable="false"><use href="#mark"/></svg>
+<span class="brand-name">perigone</span>
+</a>
+<div class="footer-meta">
+<p>Server management, with less in the way.</p>
+<a href="https://github.com/Perigone" target="_blank" rel="noopener noreferrer">github.com/Perigone</a>
+</div>
+</div>
+</footer>
+
+</body>
+</html>
