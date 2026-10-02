@@ -183,6 +183,7 @@
 <p class="layer-text">The optional user-facing app store and management UI. Find, install and manage apps in an easy, user-friendly way, or skip it and run Perigone Core on its own.</p>
 </div>
 <div class="layer layer-core">
+<div class="layer-row">
 <div class="layer-head">
 <div class="layer-tagline">
 <p class="layer-tag">Control</p>
@@ -191,6 +192,25 @@
 <h3>Perigone Core</h3>
 </div>
 <p class="layer-text">The declarative management layer, similar in spirit to Kubernetes. It does not need the UI and can run entirely on its own. Useful if you have a technical background or want to learn more about the inner workings of the system.</p>
+</div>
+<ul class="tiles" role="list">
+<li class="tile">
+<p class="tile-upstream">Control plane</p>
+<h4>API server</h4>
+<p>Holds the desired state of the system: what should run and what it is allowed to access. You can interact with it directly, or let the UI talk to it.</p>
+</li>
+<li class="tile">
+<p class="tile-upstream">Control plane</p>
+<h4>Scheduler</h4>
+<p>Decides which machine each workload should run on, based on available resources and the permissions it was granted.</p>
+</li>
+<li class="tile">
+<p class="tile-upstream">On every machine</p>
+<h4>Node agent</h4>
+<p>Responsible for actually executing the desired programs: starting, stopping and watching workloads on its machine.</p>
+</li>
+</ul>
+<p class="layer-note">On a single machine, they simply run side by side.</p>
 </div>
 </div>
 

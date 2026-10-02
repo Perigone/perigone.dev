@@ -629,6 +629,34 @@ h2.h2-small {
   color: var(--violet);
 }
 
+.layer-core {
+  flex-direction: column;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  gap: 24px;
+}
+
+.layer-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 40px;
+}
+
+.layer-core .tiles {
+  flex: none;
+}
+
+.layer-core .tile {
+  flex: 1 1 min(220px, 100%);
+}
+
+.layer-note {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
 .layer-platform {
   align-items: flex-start;
   gap: 24px 40px;
